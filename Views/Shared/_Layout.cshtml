@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link href="~/lib/font-awesome/css/all.css" rel="stylesheet" />
+    <link href="~/lib/MDB/css/mdb.min.css" rel="stylesheet" />
+    <link href="~/css/site.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="~/Images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">WebTecnologyIIT903306</a>
+                    <button class="navbar-toggler"
+                            type="button"
+                            data-mdb-toggle="collapse"
+                            data-mdb-target="#navbarText"
+                            aria-controls="navbarText"
+                            aria-expanded="false"
+                            aria-label="Toggle navigation">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarText">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <div class="navbar-nav">
+                                @await Component.InvokeAsync("Menu")
+                            </div>
+                        </ul>
+                        @await Component.InvokeAsync("Cart")
+                        <partial name="_UserPartial" />
+
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="navbar navbar-dark navbar-expand-md bg-dark fixed-bottom">
+            <div class="navbar-nav ml-auto">
+                <a class="nav-item nav-link" href="http://www.facebook.com">
+                    <i class="fab fa-facebook-f fa-2x"></i>
+                </a>
+                <a class="nav-item nav-link" href="http://www.vk.com">
+                    <i class="fab fa-vk fa-2x"></i>
+                </a>
+                <a class="nav-item nav-link" href="http://www.twitter.com">
+                    <i class="fab fa-twitter fa-2x"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+    <script src="~/lib/MDB/js/mdb.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

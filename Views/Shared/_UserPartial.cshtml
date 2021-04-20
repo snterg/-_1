@@ -1,0 +1,24 @@
+﻿
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    <!-- Avatar -->
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle d-flex align-items-center"
+           href="#"
+           id="navbarDropdownMenuLink"
+           role="button"
+           data-mdb-toggle="dropdown"
+           aria-expanded="false">
+            <i class="far fa-address-card"></i>
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="#"><img src="~/Images/user.jpg" width="30%" class="img-fluid rounded" /></a></li>
+            <li><a class="dropdown-item" href="#">usermail@mail.ru</a></li>
+            <hr>
+            <li><a class="dropdown-item" asp-controller="Cart" asp-action="Index">Мои товары</a></li>
+            <li><a class="dropdown-item" asp-area="Identity" asp-page="/Account/Logout">Logout</a></li>
+        </ul>
+    </li>
+</ul>
