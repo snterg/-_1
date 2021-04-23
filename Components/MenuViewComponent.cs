@@ -1,13 +1,10 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
 using ЛР_1.Models;
 
 namespace ЛР_1.Components
 {
-    public class MenuViewComponent:ViewComponent
+    public class MenuViewComponent : ViewComponent
     {
         // Инициализация списка элементов меню
         private List<MenuItem> _menuItems = new List<MenuItem>

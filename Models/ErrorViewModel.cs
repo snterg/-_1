@@ -1,5 +1,3 @@
-using System;
-
 namespace ЛР_1.Models
 {
     public class ErrorViewModel

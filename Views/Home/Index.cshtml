@@ -11,7 +11,7 @@
         @for (int i = 1; i < 5; i++)
         {
             <li>элемент @i списка</li>
-           }
+        }
     </ol>
     <br />
     <br />
@@ -21,36 +21,40 @@
     </ol>
     <hr />
     <h1>Форма</h1>
-    <form method="post">
-        <select name="sl" asp-items="@ViewData["Lst"] as SelectList"></select>
-        <div class="row">
-            <div class="col-md-2 offset-md-2"><input type="checkbox" name="ch1" /> Чек-бокс 1</div>
-        </div>
-        <div class="row">
-            <div class="col-md-2 offset-md-2"><input type="checkbox" name="ch2" /> Чек-бокс 2</div>
-        </div>
-        <br />
-        <div class="row">
-            <div class="col-sm-1 offset-md-2"><input type="radio" name="r" id="idr1" value="option1" /> Радио 1 </div>
-            <div class="col-sm-1 "><input type="radio" name="r" id="idr2" value="option2" /> Радио 2</div>
-            <div class="col-sm-1 "><input type="radio" name="r" id="idr3" value="option3" /> Радио 3</div>
+    <div class="container-fluid">
+        <form method="post">
+            <select name="sl" asp-items="@ViewData["Lst"] as SelectList"></select>
             <div class="row">
-                <label class="col-md-1">Логин:</label>
-                <div class="col-md-7 ">
-                    <input type="text" id="typeText" class="form-control" placeholder="Введите имя" name="log" />
+                <div class="col-md-2 offset-md-2"><input type="checkbox" name="ch1" /> Чек-бокс 1</div>
+            </div>
+            <div class="row">
+                <div class="col-md-2 offset-md-2"><input type="checkbox" name="ch2" /> Чек-бокс 2</div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-sm-1 offset-md-2"><input type="radio" name="r" id="idr1" value="option1" /> Радио 1 </div>
+                <div class="col-sm-1 "><input type="radio" name="r" id="idr2" value="option2" /> Радио 2</div>
+                <div class="col-sm-1 "><input type="radio" name="r" id="idr3" value="option3" /> Радио 3</div>
+                <div class="row">
+                    <label class="col-md-1">Логин:</label>
+                    <div class="col-md-7 ">
+                        <input type="text" id="typeText" class="form-control" placeholder="Введите имя" name="log" />
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="row">
+                    <label class="col-md-1">Пароль:</label>
+                    <div class="col-md-7 ">
+                        <input type="text" id="typeText" class="form-control" placeholder="Введите пароль" name="pass" />
+                    </div>
+                </div>
+                <br />
+                <br />
+                <div class="container-fluid">
+                    <button type="submit" class="btn btn-primary">Отправить</button>
                 </div>
             </div>
-            <br>
-            <br>
-            <div class="row">
-                <label class="col-md-1">Пароль:</label>
-                <div class="col-md-7 ">
-                    <input type="text" id="typeText" class="form-control" placeholder="Введите пароль" name="pass" />
-                </div>
-            </div>
-            <div class="container-fluid">
-                <button type="submit" class="btn btn-primary">Отправить</button>
-            </div>
+        </form>
         </div>
-    </form>
-</div>
+    </div>

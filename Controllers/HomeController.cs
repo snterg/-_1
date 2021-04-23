@@ -1,9 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ЛР_1.Controllers
 {
@@ -30,7 +27,7 @@ namespace ЛР_1.Controllers
         public IActionResult Index()
         {
             ViewData["Text"] = "Лабораторная работа 2";
-            ViewData["Lst"] =new SelectList(_listDemo, "ListItemValue", "ListItemText");
+            ViewData["Lst"] = new SelectList(_listDemo, "ListItemValue", "ListItemText");
             return View();
         }
     }

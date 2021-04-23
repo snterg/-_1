@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-
-namespace ЛР_1.Models
+﻿namespace ЛР_1.Models
 {
     public class MenuItem
     {
@@ -24,6 +18,6 @@ namespace ЛР_1.Models
         // текст надписи
         public string Text { get; set; } = "";
 
-    
+
     }
 }
