@@ -4,21 +4,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ЛР_1.DAL.Entities;
+using ЛР_1.Models;
 namespace ЛР_1.Controllers
 {
     public class ProductController : Controller
     {
-        List<Course> _student;
+        public List<Course> _student;
         List<Groups> _Groupsstud;
+        int _pageSize;
 
         public ProductController()
         {
+            _pageSize = 3;
             SetupData();
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int? group,int pageNo = 1)
         {
-            return View(_student);
+            var studfiltr = _student.Where(c => !group.HasValue || c.GroupId == group.Value);
+            // Поместить список групп во ViewData
+            ViewData["Groups"] = _Groupsstud;
+            // Получить id текущей группы и поместить в TempData
+            ViewData["CurrentGroup"] = group ?? 0;
+            return View(ListViewModel<Course>.GetModel(studfiltr, pageNo,_pageSize));
         }
 
         private void SetupData()
