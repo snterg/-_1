@@ -1,9 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Moq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ЛР_1.DAL.Entities;
+using ЛР_1.Extensions;
 using ЛР_1.Models;
 namespace ЛР_1.Controllers
 {
@@ -14,11 +17,12 @@ namespace ЛР_1.Controllers
         int _pageSize;
 
         public ProductController()
-        {
+        {   
             _pageSize = 3;
             SetupData();
         }
-
+        //[Route("Catalog")]
+        //[Route("Catalog/Page_{pageNo}")]
         public IActionResult Index(int? group,int pageNo = 1)
         {
             var studfiltr = _student.Where(c => !group.HasValue || c.GroupId == group.Value);
@@ -29,7 +33,9 @@ namespace ЛР_1.Controllers
             //return View(ListViewModel<Course>.GetModel(studfiltr, pageNo,_pageSize));
 
             var model = ListViewModel<Course>.GetModel(studfiltr, pageNo,_pageSize);
-            if (Request.Headers["x-requested-with"].ToString().ToLower().Equals("xmlhttprequest"))
+            //if (Request.Headers["x-requested-with"].ToString().ToLower().Equals("xmlhttprequest"))
+            //    return PartialView("_Listpartial", model);
+            if (Request.IsAjaxRequest())
                 return PartialView("_Listpartial", model);
             else
                 return View(model);

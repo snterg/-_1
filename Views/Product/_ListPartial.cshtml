@@ -1,34 +1,8 @@
-﻿@model Course
-
-
-<div class="card">
-    <img src="~/Images/@Model.Image"
-         alt='NoImage'
-         class="card-img-top" />
-    <div class="card-body">
-        <h5 class="card-title">
-            @Model.Lastname <span> </span>@Model.Firstname
-        </h5>
-        <p class="card-text">
-            @Model.Sr_ball
-        </p>
-        @{ // Получение текущего адреса
-            var request = ViewContext.HttpContext.Request;
-            var returnUrl = request.Path +
-            request.QueryString.ToUriComponent();
-        }
-        @*Разметка кнопки добавления в корзину*@
-        <p class="mt-2">
-            <a asp-action="Add"
-               asp-controller="Cart"
-               asp-route-id="@Model.studId"
-               asp-route-returnUrl="@returnUrl"
-               class="btn btn-primary">
-                <i class="fa fa-shopping-cart"></i> В корзину
-            </a>
-        </p>
-    </div>
-</div>
+﻿@model ListViewModel<Course>
+@foreach (var item in Model)
+{
+    <partial name="_ListItemPartial" model="@item" />
+}
 
 
 @*<p>

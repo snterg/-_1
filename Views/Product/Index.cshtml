@@ -45,12 +45,12 @@
     <br />
     <div class="row">
         <div class="card-group" id="list">
-            @foreach (var item in Model)
-            {
+            @*@foreach (var item in Model)
+            {*@
                 @*<partial name="_ListItemPartial" model="@item" />*@
-                <partial name="_ListPartial" model="@item" />
+                <partial name="_ListPartial" model="@Model" />
 
-            }
+            @*}*@
         </div>
     </div>
     <pager page-current="@Model.CurrentPage"
