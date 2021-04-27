@@ -20,14 +20,9 @@ namespace ЛР_1.Models
         public static ListViewModel<T> GetModel(IEnumerable<T> list,int current, int itemsPerPage)
 
         {
-            var items = list
+            var items = list.Skip((current - 1) * itemsPerPage).Take(itemsPerPage).ToList();
 
-            .Skip((current - 1) * itemsPerPage)
-            .Take(itemsPerPage)
-            .ToList();
-
-            var total = (int)Math.Ceiling((double)list.Count() /
-            itemsPerPage);
+            var total = (int)Math.Ceiling((double)list.Count()/itemsPerPage);
             return new ListViewModel<T>(items, total, current);
         }
     }

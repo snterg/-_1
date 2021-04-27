@@ -21,12 +21,13 @@
                 <i class="far fa-address-card"></i>
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <li><a class="dropdown-item" href="#"><img src="@Url.Action("GetAvatar","Image")" width="30%" class="img-fluid rounded" /></a></li>
+                @*<li><a class="dropdown-item" href="#"><img src="@Url.Action("GetAvatar","Image")" width="30%" class="img-fluid rounded" /></a></li>*@
+                <li><a class="dropdown-item" href="#"><img img-action="GetAvatar" img-controller="Image" width="30%" class="img-fluid rounded" /></a></li>
                 <li><a class="dropdown-item" href="#"> @User.Identity.Name</a></li>
                 <hr>
                 <li><a class="dropdown-item" asp-controller="Cart" asp-action="Index">Мои товары</a></li>
                 <li>
-                
+
                     <form asp-area="Identity"
                           asp-page="/Account/Logout"
                           asp-route-returnurl="@ViewContext.HttpContext.Request.Path">
@@ -36,8 +37,8 @@
                                class="dropdown-item" />
 
                     </form>
-                    
-                    </li>
+
+                </li>
             </ul>
         </li>
     </ul>

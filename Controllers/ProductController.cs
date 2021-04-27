@@ -26,7 +26,13 @@ namespace ЛР_1.Controllers
             ViewData["Groups"] = _Groupsstud;
             // Получить id текущей группы и поместить в TempData
             ViewData["CurrentGroup"] = group ?? 0;
-            return View(ListViewModel<Course>.GetModel(studfiltr, pageNo,_pageSize));
+            //return View(ListViewModel<Course>.GetModel(studfiltr, pageNo,_pageSize));
+
+            var model = ListViewModel<Course>.GetModel(studfiltr, pageNo,_pageSize);
+            if (Request.Headers["x-requested-with"].ToString().ToLower().Equals("xmlhttprequest"))
+                return PartialView("_Listpartial", model);
+            else
+                return View(model);
         }
 
         private void SetupData()
