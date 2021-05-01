@@ -1,9 +1,6 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using ЛР_1.DAL.Entities;
 
@@ -14,7 +11,7 @@ namespace ЛР_1.Controllers
         UserManager<ApplicationUser> _userManager;
         IWebHostEnvironment _env;
 
-        public ImageController(UserManager<ApplicationUser>userManager, IWebHostEnvironment env)
+        public ImageController(UserManager<ApplicationUser> userManager, IWebHostEnvironment env)
         {
             _userManager = userManager;
             _env = env;

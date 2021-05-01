@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using ЛР_1.Models;
+﻿using Microsoft.AspNetCore.Http;
 
 namespace ЛР_1.Extensions
 {

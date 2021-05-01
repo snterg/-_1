@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using Microsoft.AspNetCore.Routing;
 
 namespace ЛР_1.TagHelpers
 {
-    public class PagerTagHelper:TagHelper
+    public class PagerTagHelper : TagHelper
     {
         LinkGenerator _linkGenerator;
         // номер текущей страницы
@@ -26,7 +22,7 @@ namespace ЛР_1.TagHelpers
         {
             _linkGenerator = linkGenerator;
         }
-        public override void Process(TagHelperContext context,TagHelperOutput output)
+        public override void Process(TagHelperContext context, TagHelperOutput output)
 
         {
             // контейнер разметки пейджера
@@ -37,16 +33,16 @@ namespace ЛР_1.TagHelpers
             ulTag.AddCssClass(PagerClass);
             for (int i = 1; i <= PageTotal; i++)
             {
-                var url = _linkGenerator.GetPathByAction(Action,Controller,
+                var url = _linkGenerator.GetPathByAction(Action, Controller,
                 new
                 {
                     pageNo = i,
 
-                    group = GroupId == 0? null: GroupId
+                    group = GroupId == 0 ? null : GroupId
 
                 });
                 // получение разметки одной кнопки пейджера
-                var item = GetPagerItem(url: url, text: i.ToString(),active: i == PageCurrent,disabled: i == PageCurrent);
+                var item = GetPagerItem(url: url, text: i.ToString(), active: i == PageCurrent, disabled: i == PageCurrent);
                 // добавить кнопку в разметку пейджера
                 ulTag.InnerHtml.AppendHtml(item);
             }
@@ -61,7 +57,7 @@ namespace ЛР_1.TagHelpers
         /// <param name="active">признак текущей страницы</param>
         /// <param name="disabled">запретить доступ к кнопке</param>
         /// <returns>объект класса TagBuilder</returns>
-        private TagBuilder GetPagerItem(string url, string text, bool active = false,bool disabled = false)
+        private TagBuilder GetPagerItem(string url, string text, bool active = false, bool disabled = false)
         {
             // создать тэг <li>
             var liTag = new TagBuilder("li");

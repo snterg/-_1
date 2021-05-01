@@ -59,7 +59,7 @@ namespace ЛР_1
             DbInitializer.Seed(context, userManager, roleManager).GetAwaiter().GetResult();
             app.UseAuthentication();
             app.UseAuthorization();
-           
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
