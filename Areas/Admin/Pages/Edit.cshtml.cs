@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -14,14 +17,19 @@ namespace ЛР_1.Areas.Admin.Pages
     public class EditModel : PageModel
     {
         private readonly ЛР_1.DAL.Data.ApplicationDbContext _context;
+        private IWebHostEnvironment _environment;
 
-        public EditModel(ЛР_1.DAL.Data.ApplicationDbContext context)
+        public EditModel(ЛР_1.DAL.Data.ApplicationDbContext context, IWebHostEnvironment env)
         {
             _context = context;
+            _environment = env;
         }
 
         [BindProperty]
         public Course Course { get; set; }
+
+        [BindProperty]
+        public IFormFile Image { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -49,7 +57,19 @@ namespace ЛР_1.Areas.Admin.Pages
             {
                 return Page();
             }
+            if (Image != null)
+            {
+                var fileName = $"{Course.studId}" +
+                Path.GetExtension(Image.FileName);
+                Course.Image = fileName;
+                var path = Path.Combine(_environment.WebRootPath, "Images",
+                fileName);
+                using (var fStream = new FileStream(path, FileMode.Create))
+                {
+                    await Image.CopyToAsync(fStream);
+                }
 
+            }
             _context.Attach(Course).State = EntityState.Modified;
 
             try
