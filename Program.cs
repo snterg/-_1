@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 
 namespace ЛР_1
 {
@@ -15,6 +16,10 @@ namespace ЛР_1
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
+                }).ConfigureLogging(lp =>
+                {
+                    lp.ClearProviders();
+                    lp.AddFilter("Microsoft", LogLevel.None);
                 });
     }
 }

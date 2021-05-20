@@ -8,7 +8,7 @@
 <h1>Панель администрирования</h1>
 
 <p class="mt-2">
-    <a asp-page="Create" class="btn btn-outline-primary">
+    <a asp-page="Create" class="btn btn-primary btn-rounded">
         <span class="fa fa-plus-circle"> Добавить</span>
     </a>
 </p>
@@ -52,11 +52,11 @@
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.studId"
-                   class="btn btn-outline-primary">
+                   class="btn btn-primary btn-rounded">
                     <span class="fas fa-edit"></span>
                 </a>
                 <a asp-page="./Delete" asp-route-id="@item.studId"
-                   class="btn btn-outline-danger">
+                   class="btn btn-danger btn-rounded">
                     <span class="fas fa-trash-alt"></span>
                 </a>
             </td>

@@ -7,8 +7,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using ЛР_1.DAL.Data;
 using ЛР_1.DAL.Entities;
+using ЛР_1.Extensions;
 using ЛР_1.Models;
 using ЛР_1.Services;
 namespace ЛР_1
@@ -52,8 +54,9 @@ namespace ЛР_1
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ApplicationDbContext context,
-                                UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
+                                UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, ILoggerFactory logger)
         {
+            logger.AddFile("Logs/log-{Date}.txt");
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -73,7 +76,7 @@ namespace ЛР_1
             app.UseAuthentication();
             app.UseSession();
             app.UseAuthorization();
-
+            app.UseFileLogging();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

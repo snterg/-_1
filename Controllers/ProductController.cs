@@ -5,6 +5,8 @@ using ЛР_1.DAL.Entities;
 using ЛР_1.Extensions;
 using ЛР_1.Models;
 using ЛР_1.DAL.Data;
+using Microsoft.Extensions.Logging;
+
 namespace ЛР_1.Controllers
 {
     public class ProductController : Controller
@@ -13,25 +15,28 @@ namespace ЛР_1.Controllers
         //List<Groups> _Groupsstud;
         int _pageSize;
         ApplicationDbContext _context;
-
-        public ProductController(ApplicationDbContext context)
+        private ILogger _logger;
+        public ProductController(ApplicationDbContext context, ILogger<ProductController> logger)
         {
             _pageSize = 3;
             _context = context;
+            _logger = logger;
             //SetupData();
 
         }
         [Route("Catalog")]
         [Route("Catalog/Page_{pageNo}")]
-        public IActionResult Index(int? group, int pageNo = 1)
+        public IActionResult Index(int? group, int pageNo)
         {
+            var groupName = group.HasValue?_context.Groups.Find(group.Value)?.GroupName:"all groups";
+            _logger.LogInformation($"info: group={groupName}, page={pageNo}");
             var studfiltr = _context.Students.Where(c => !group.HasValue || c.GroupId == group.Value);
             // Поместить список групп во ViewData
             ViewData["Groups"] = _context.Groups;
             // Получить id текущей группы и поместить в TempData
             ViewData["CurrentGroup"] = group ?? 0;
             //return View(ListViewModel<Course>.GetModel(studfiltr, pageNo,_pageSize));
-
+           
             var model = ListViewModel<Course>.GetModel(studfiltr, pageNo, _pageSize);
             //if (Request.Headers["x-requested-with"].ToString().ToLower().Equals("xmlhttprequest"))
             //    return PartialView("_Listpartial", model);
