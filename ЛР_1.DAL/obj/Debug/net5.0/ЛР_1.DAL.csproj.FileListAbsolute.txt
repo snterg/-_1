@@ -1,0 +1,15 @@
+E:\ВТ\ЛР_1.DAL\bin\Debug\net5.0\ЛР_1.DAL.deps.json
+E:\ВТ\ЛР_1.DAL\bin\Debug\net5.0\ЛР_1.DAL.runtimeconfig.json
+E:\ВТ\ЛР_1.DAL\bin\Debug\net5.0\ЛР_1.DAL.runtimeconfig.dev.json
+E:\ВТ\ЛР_1.DAL\bin\Debug\net5.0\ЛР_1.DAL.dll
+E:\ВТ\ЛР_1.DAL\bin\Debug\net5.0\ref\ЛР_1.DAL.dll
+E:\ВТ\ЛР_1.DAL\bin\Debug\net5.0\ЛР_1.DAL.pdb
+E:\ВТ\ЛР_1.DAL\obj\Debug\net5.0\ЛР_1.DAL.GeneratedMSBuildEditorConfig.editorconfig
+E:\ВТ\ЛР_1.DAL\obj\Debug\net5.0\ЛР_1.DAL.AssemblyInfoInputs.cache
+E:\ВТ\ЛР_1.DAL\obj\Debug\net5.0\ЛР_1.DAL.AssemblyInfo.cs
+E:\ВТ\ЛР_1.DAL\obj\Debug\net5.0\ЛР_1.DAL.csproj.CoreCompileInputs.cache
+E:\ВТ\ЛР_1.DAL\obj\Debug\net5.0\ЛР_1.DAL.dll
+E:\ВТ\ЛР_1.DAL\obj\Debug\net5.0\ref\ЛР_1.DAL.dll
+E:\ВТ\ЛР_1.DAL\obj\Debug\net5.0\ЛР_1.DAL.pdb
+E:\ВТ\ЛР_1.DAL\obj\Debug\net5.0\ЛР_1.DAL.genruntimeconfig.cache
+E:\ВТ\ЛР_1.DAL\obj\Debug\net5.0\ЛР_1.DAL.csprojAssemblyReference.cache

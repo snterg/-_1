@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>ЛР_1.DAL</id>
+    <version>1.0.0</version>
+    <authors>ЛР_1.DAL</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Package Description</description>
+    <dependencies>
+      <group targetFramework="net5.0">
+        <dependency id="Microsoft.AspNetCore.Identity.EntityFrameworkCore" version="5.0.4" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.EntityFrameworkCore.SqlServer" version="5.0.4" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.VisualStudio.Web.CodeGeneration.Core" version="5.0.2" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.VisualStudio.Web.CodeGeneration.Design" version="5.0.2" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="E:\ВТ\ЛР_1.DAL\bin\Release\net5.0\ЛР_1.DAL.runtimeconfig.json" target="lib\net5.0\ЛР_1.DAL.runtimeconfig.json" />
+    <file src="E:\ВТ\ЛР_1.DAL\bin\Release\net5.0\ЛР_1.DAL.dll" target="lib\net5.0\ЛР_1.DAL.dll" />
+  </files>
+</package>
